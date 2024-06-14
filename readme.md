@@ -23,7 +23,7 @@ let results = await db.matchNode('user', 'User', { active: true })
     cypher.relation('out', '', 'HasVehicle'),
     cypher.node('vehicle', 'Vehicle', { colour: 'red' })
   ])
-  .ret(['user', 'vehicle'])
+  .return(['user', 'vehicle'])
   .run();
 
 // Results:
@@ -150,7 +150,7 @@ You can also use the `stream` method to download the results as an observable.
 
 ```javascript
 const results = db.matchNode('project', 'Project')
-  .ret('project')
+  .return('project')
   .stream();
 
 results.subscribe(row => console.log(row.project.properties.name));
